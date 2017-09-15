@@ -1,9 +1,18 @@
 console.log('main.js');
 
-requirejs(['selector'], function (selector) {
-    console.log('selector.js loaded');
+require.config({
+    baseUrl: 'js'
 });
 
-requirejs(['demo1'], function (demo1) {
+require(['selector'], function (query) {
+    console.log('selector.js loaded');
+
+    console.log('selector', query);
+
+    var els = query('.wrapper');
+    console.log('els', els);
+});
+
+require(['demo1'], function (demo1) {
     console.log('demo1.js loaded');
 });
